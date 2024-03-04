@@ -6,267 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        @import url(http://at.alicdn.com/t/c/font_4361608_q4vy7szug3.css);
-
-        body {
-
-            position: relative;
-            background-color: #ccc;
-            height: 200vh;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            list-style: none;
-        }
-
-        .header {
-            width: 100%;
-            position: absolute;
-            line-height: 50px;
-            height: 50px;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            z-index: 2;
-        }
-
-        .header .img-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .header .img-container img {
-            width: 116px;
-        }
-
-        .header .menu-container {
-            display: flex;
-            min-width: 642px;
-            justify-content: space-around;
-        }
-
-        .header .menu-container li {
-            position: relative;
-        }
-
-        .header .menu-container li.active a {
-            color: #69482a;
-        }
-
-        .header .menu-container li.active:not(:first-child):after {
-            content: '';
-            position: absolute;
-            border: 10px solid transparent;
-            border-bottom-color: #69482a;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 0;
-        }
-
-        .tan-container {
-            position: absolute;
-            height: 50px;
-            line-height: 50px;
-            background-color: #69482a;
-            top: 50px;
-            display: flex;
-            left: 0;
-            width: 100%;
-            padding-left: 150px;
-            height: 0;
-            overflow: hidden;
-            transition: 0.15s ease-in-out;
-        }
-
-        .tan-container:not(:first-child).active {
-            height: 50px;
-        }
-
-        .tan-container li {
-            padding: 0 15px;
-        }
-
-        .tan-container li a {
-            font-size: 14px;
-            color: #fff;
-            display: block;
-            cursor: pointer;
-        }
-
-        .tan-container li a:hover {
-            color: #a27e4e;
-            display: block;
-            cursor: pointer;
-        }
-
-        .header .menu-container li a {
-            color: #fff;
-            padding: 0 8px;
-            display: block;
-            cursor: pointer;
-        }
-
-        .header .icon-container {
-            display: flex;
-        }
-
-        .header .icon-container li {
-            position: relative;
-        }
-
-        .header .icon-container li .search {
-            display: none;
-            position: absolute;
-            left: 0;
-            height: 30px;
-            line-height: 30px;
-            padding: 0 10px;
-            outline: none;
-        }
-
-        .header .icon-container li:hover .login,
-        .header .icon-container li:hover .search {
-            display: block;
-        }
-
-        .header .icon-container li .login {
-            display: none;
-            line-height: 1;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            text-align: center;
-            top: 50px;
-        }
-
-        .header .icon-container li .login li {
-            line-height: 25px;
-            border: 1px solid;
-            cursor: pointer;
-
-        }
-
-        .header .icon-container li a {
-            display: block;
-            cursor: pointer;
-        }
-
-        .header .icon-container li a i {
-            font-size: 23px;
-            padding: 0 10px;
-            color: #fff;
-        }
-
-        .header .icon-container li:not(:last-child) a i {
-            border-right: 1px solid;
-        }
-
-        #tanBox {
-            position: fixed;
-            left: 0;
-            top: 0;
-            background-color: rgba(166, 175, 179, 0.6);
-            z-index: -1;
-            width: 100%;
-            height: 100%;
-            transition: 0.2s;
-            opacity: 0;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            display: none;
-        }
-
-        #tanBox button {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 10px;
-            background-color: #69482a;
-            cursor: pointer;
-        }
-
-        #tanBox h2 {
-            padding-bottom: 50px;
-            font-size: 30px;
-        }
-
-        #tanBox .list {
-            min-width: 160px;
-        }
-
-        #tanBox .list li {
-            height: 30px;
-            line-height: 30px;
-        }
-
-        #closetanBox {
-            position: absolute;
-            top: 50px;
-            right: 80px;
-            transition: 1s;
-        }
-
-        #closetanBox:hover {
-            transform: rotate(360deg);
         }
 
         .Container {
             position: relative;
+            margin: 50px auto;
             overflow: hidden;
         }
 
-        .Container .img-container {
-            padding-top: 47%;
+        .img-container {
+            padding-bottom: 47%;
         }
 
-        .Container .img-container img {
+        .img-container img {
             width: 100%;
             height: 100%;
-            display: block;
             position: absolute;
-            /* transition: all 0.8s linear; */
+            display: block;
+            object-fit: cover;
             left: 0;
             top: 0;
             transform: scale(1);
             opacity: 0;
         }
 
-        /*         .Container .img-container img:hover{
-            transform: scale(1.5);
+        /* .img-container img.active{
+            transform: scale(1.1);
         } */
-        .arrow {
-            position: absolute;
+        .arrow-container .arrow {
             top: 50%;
             transform: translateY(-50%);
-            font-size: 25px;
-            width: 50px;
-            height: 50px;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            color: #fff;
             border-radius: 50%;
-            background-color: lightblue;
-            line-height: 50px;
             text-align: center;
+            line-height: 30px;
+            font-size: 18px;
             cursor: pointer;
-            opacity: 0;
         }
 
-        .arrow:hover {
-            opacity: 1;
-        }
-
-        .arrowContainer .arrow-left {
+        .arrow-container .arrow-left {
             left: 20px;
         }
 
-        .arrowContainer .arrow-right {
+        .arrow-container .arrow-right {
             right: 20px;
         }
 
-        .iconContainer {
+        .point-container {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -274,272 +68,158 @@
             display: flex;
         }
 
-        .iconContainer .icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: black;
-            margin: 0 10px;
+        .point-container .point {
             cursor: pointer;
+            width: 18px;
+            height: 18px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin: 0 10px;
         }
 
-        .iconContainer .icon.active {
-            background-color: red;
-        }
-
-        @media (max-width: 1000px) {
-            .header .menu-container {
-                display: none;
-            }
+        .point-container .point.active {
+            background-color: lightcoral;
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <div class="img-container">
-            <img src="https://img.dpm.org.cn/Uploads/Picture/2021/08/19/s611e293c9d212.png" alt="">
-        </div>
-        <ul class="menu-container">
-            <li>
-                <a>首页</a>
-            </li>
-            <li>
-                <a>导览</a>
-            </li>
-            <li>
-                <a>展览</a>
-            </li>
-            <li>
-                <a>教育</a>
-            </li>
-            <li>
-                <a>探索</a>
-            </li>
-            <li>
-                <a>学术</a>
-            </li>
-            <li>
-                <a>文创</a>
-            </li>
-            <li>
-                <a>关于</a>
-            </li>
-        </ul>
-        <ul class="icon-container">
-            <li>
-                <a>
-                    <i class="iconfont icon-github"></i>
-                </a>
-                <ul class="login">
-                    <li>登录</li>
-                    <li>注册</li>
-                </ul>
-            </li>
-            <li>
-                <a>
-                    <i class="iconfont icon-github"></i>
-                </a>
-                <input type="text" placeholder="请输入关键字" class="search">
-            </li>
-            <li>
-                <a>
-                    <i class="iconfont icon-github"></i>
-                </a>
-            </li>
-            <li>
-                <a>
-                    <i class="iconfont icon-github"></i>
-                </a>
-            </li>
-            <li id="tanBtn">
-                <a>
-                    <i class="iconfont icon-github"></i>
-                </a>
-            </li>
-        </ul>
-        <div id="tanBox">
-            <button id="closetanBox">关闭</button>
-            <ul class="list">
-                <h2>Logo</h2>
-                <li>首页</li>
-                <li>导览</li>
-                <li>展览</li>
-                <li>教育</li>
-                <li>学术</li>
-            </ul>
-            <ul class="list">
-                <h2>Logo</h2>
-                <li>首页</li>
-                <li>导览</li>
-                <li>展览</li>
-                <li>教育</li>
-                <li>学术</li>
-            </ul>
-            <ul class="list">
-                <h2>Logo</h2>
-                <li>首页</li>
-                <li>导览</li>
-                <li>展览</li>
-                <li>教育</li>
-                <li>学术</li>
-            </ul>
-            <ul class="list">
-                <h2>Logo</h2>
-                <li>首页</li>
-                <li>导览</li>
-                <li>展览</li>
-                <li>教育</li>
-                <li>学术</li>
-            </ul>
-        </div>
-    </div>
     <div class="Container">
         <div class="img-container">
-            <img src="https://www.dpm.org.cn/Uploads/Picture/2024/02/26/s65dc44be55818.jpg" alt="">
-            <img src="https://www.dpm.org.cn/Uploads/Picture/2024/02/27/s65dd4d95de61f.jpg" alt="">
-            <img src="https://www.dpm.org.cn/Uploads/Picture/2024/02/27/s65dd4d95dc0b3.jpg" alt="">
-            <img src="https://www.dpm.org.cn/Uploads/Picture/2024/02/27/s65dd4d95e12f3.jpg" alt="">
+            <img src="https://www.dpm.org.cn/Uploads/Picture/2024/02/26/s65dc44be55818.jpg" data-name="1">
+            <img src="https://www.dpm.org.cn/Uploads/Picture/2024/02/27/s65dd4d95de61f.jpg" data-name="2">
+            <img src="https://www.dpm.org.cn/Uploads/Picture/2024/02/27/s65dd4d95dc0b3.jpg" data-name="3">
+            <img src="https://www.dpm.org.cn/Uploads/Picture/2024/02/27/s65dd4d95e12f3.jpg" data-name="4">
         </div>
-        <div class="arrowContainer">
+        <div class="arrow-container">
             <div class="arrow arrow-left">&lt;</div>
             <div class="arrow arrow-right">&gt;</div>
         </div>
-        <div class="iconContainer">
-            <div class="icon active"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
-            <div class="icon"></div>
+        <div class="point-container">
+            <div class="point active"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
         </div>
     </div>
-    <div class="yinchang-container">
-        <ul class="tan-container">
+    <script>
+        //目标 1s 由1倍变成1.1倍
+        //切换图片 0.5s 变成1.5倍 然后消失
+        (function () {
+            const imgContainer = document.querySelector(".img-container")
+            const imgs = document.querySelectorAll("img")
+            const arrowLeft = document.querySelector(".arrow-left")
+            const arrowRight = document.querySelector(".arrow-right")
+            const points = document.querySelectorAll(".point")
+            let index = 0
+            let timer = null
+            let over = false
+            //剔除style
+            function BeginAnimal(dom) {
+                requestAnimationFrame(() => {
+                    dom.style = 'none'
+                })
+            }
+            //初始化动画
+            function Animal(dom) {
 
-        </ul>
-        <ul class="tan-container">
-            <li>
-                <a>开放时间</a>
-            </li>
-            <li>
-                <a>在线订票</a>
-            </li>
-            <li>
-                <a>交通路线</a>
-            </li>
-            <li>
-                <a>参观须知</a>
-            </li>
-            <li>
-                <a>全景故宫</a>
-            </li>
-        </ul>
-        <ul class="tan-container">
-            <li>
-                <a>开放时间</a>
-            </li>
-            <li>
-                <a>在线订票</a>
-            </li>
-            <li>
-                <a>交通路线</a>
-            </li>
-            <li>
-                <a>参观须知</a>
-            </li>
-            <li>
-                <a>全景故宫</a>
-            </li>
-        </ul>
-        <ul class="tan-container">
-            <li>
-                <a>开放时间</a>
-            </li>
-            <li>
-                <a>在线订票</a>
-            </li>
-            <li>
-                <a>交通路线</a>
-            </li>
-            <li>
-                <a>参观须知</a>
-            </li>
-            <li>
-                <a>全景故宫</a>
-            </li>
-        </ul>
-        <ul class="tan-container">
-            <li>
-                <a>开放时间</a>
-            </li>
-            <li>
-                <a>在线订票</a>
-            </li>
-            <li>
-                <a>交通路线</a>
-            </li>
-            <li>
-                <a>参观须知</a>
-            </li>
-            <li>
-                <a>全景故宫</a>
-            </li>
-        </ul>
-        <ul class="tan-container">
-            <li>
-                <a>开放时间</a>
-            </li>
-            <li>
-                <a>在线订票</a>
-            </li>
-            <li>
-                <a>交通路线</a>
-            </li>
-            <li>
-                <a>参观须知</a>
-            </li>
-            <li>
-                <a>全景故宫</a>
-            </li>
-        </ul>
-        <ul class="tan-container">
-            <li>
-                <a>开放时间</a>
-            </li>
-            <li>
-                <a>在线订票</a>
-            </li>
-            <li>
-                <a>交通路线</a>
-            </li>
-            <li>
-                <a>参观须知</a>
-            </li>
-            <li>
-                <a>全景故宫</a>
-            </li>
-        </ul>
-        <ul class="tan-container">
-            <li>
-                <a>开放时间</a>
-            </li>
-            <li>
-                <a>在线订票</a>
-            </li>
-            <li>
-                <a>交通路线</a>
-            </li>
-            <li>
-                <a>参观须知</a>
-            </li>
-            <li>
-                <a>全景故宫</a>
-            </li>
-        </ul>
-    </div>
+                requestAnimationFrame(() => {
+                    dom.style.transform = "scale(1.1)"
+                    dom.style.transition = "all 1s linear"
+                    dom.style.opacity = "1"
+                })
+            }
+            //离开动画
+            function DelayAnimal(dom) {
+                requestAnimationFrame(() => {
+                    dom.style.transform = "scale(1.5)"
+                    dom.style.transition = "all 0.5s linear"
+                    dom.style.opacity = "0"
+                })
+                over = true
+                dom.addEventListener("transitionend", function () {
+                    // console.log(dom.dataset.name);
+                    over = false
+                    BeginAnimal(dom)
+                }, {
+                    once: true
+                })
+            }
+            //小点动画
+            function PointAnimal(dom) {
+                requestAnimationFrame(() => {
+                    document.querySelector(".point.active").classList.remove("active")
+                    dom.classList.add("active")
+                })
+            }
+            //添加定时器自动切换
+            function TimeDelayAnimal() {
+                requestAnimationFrame(() => {
+                    timer = setInterval(next, 5000)
+                })
+            }
+            function init() {
+                Animal(imgs[index])
+                TimeDelayAnimal()
+            }
+            //手动点击清空定时器
+            function Deletetimer() {
+                clearInterval(timer)
+                TimeDelayAnimal()
+            }
+            //切换下一张
+            function next() {
+                if (over) {
+                    console.log("动画未执行完毕，禁止跳转");
+                    return
+                }
+                Deletetimer()
+                requestAnimationFrame(() => {
+                    DelayAnimal(imgs[index])
+                    index++
+                    if (index > imgs.length - 1) {
+                        index = 0
+                    }
+                    Animal(imgs[index])
+                    PointAnimal(points[index])
+                })
+            }
+            //切换上一张
+            function prev() {
+                if (over) {
+                    console.log("动画未执行完毕，禁止跳转");
+                    return
+                }
+                Deletetimer()
+                requestAnimationFrame(() => {
+                    DelayAnimal(imgs[index])
+                    index--
+                    if (index < 0) {
+                        index = imgs.length - 1
+                    }
+                    Animal(imgs[index])
+                    PointAnimal(points[index])
+                })
+            }
+            arrowRight.addEventListener('click', next)
+            arrowLeft.addEventListener('click', prev)
+            points.forEach((point, i) => {
+                point.addEventListener('click', function () {
+                    if (over || index === i) {
+                        console.log("动画未执行完毕，禁止跳转");
+                        return
+                    }
+                    Deletetimer()
+                    PointAnimal(point)
+                    DelayAnimal(imgs[index])
+                    index = i
+                    Animal(imgs[index])
+                })
+            })
+            init()
+        })()
 
-
-    <script src="./index.js"></script>
-    <script src="./index1.js"></script>
+    </script>
 </body>
 
 </html>
