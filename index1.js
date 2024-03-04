@@ -6,6 +6,18 @@
     let currentIndex = 0
     let timer = null
     let isGo = false
+    document.addEventListener("visibilitychange", function() {
+        if (document.visibilityState === 'hidden') {
+          // 页面不可见，停止轮播图切换
+          clearInterval(timer);
+        } else {
+          // 页面可见，重新启动轮播图切换
+          timer = setInterval(() => {
+            runAnimation15("right")
+            runAnimation11()
+        }, 5000)
+        }
+      });
     const init = () => {
         imgs[0].clientHeight
         // console.log(6666);
