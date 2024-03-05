@@ -80,6 +80,298 @@
         .point-container .point.active {
             background-color: lightcoral;
         }
+        .Container1 {
+            width: 80%;
+            max-width: 1600px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+            height: auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 3s;
+        }
+        .Container1.active{
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .left-Container1 {
+            width: 55%;
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .Container1 .new-Container1 {
+            flex: 1 1 auto;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            background-color: #7c2423;
+            justify-content: space-between;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .Container1 .new-Container1 .list-Container1 {
+            padding: 15px;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .Container1 .new-Container1 .list-Container1 .title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .Container1 .new-Container1 .list-Container1 .list {
+            padding-bottom: 15px;
+            border-bottom: 1px solid black;
+        }
+
+        .Container1 .new-Container1 .list-Container1 .list li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 5px 0px 5px 25px;
+            font-size: 18px;
+        }
+
+        .Container1 .new-Container1 .list-Container1 .news {
+            margin-top: 15px;
+        }
+
+        .Container1 .new-Container1 .list-Container1 .news li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 10px;
+            font-size: 15px;
+            line-height: 22px;
+        }
+
+        .Container1 .new-Container1 .list-Container1 .news li p {
+            padding: 0 10px;
+            width: 75%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            float: left;
+        }
+
+        .Container1 .new-Container1 .list-Container1 .news li span {
+            float: right;
+        }
+
+        .Container1 .new-Container1 .background-Container1 {
+            flex: 0 0 auto;
+            width: 43%;
+            overflow: hidden;
+        }
+
+        .Container1 .new-Container1 .background-Container1 .img {
+            background-image: url('https://img.dpm.org.cn/Uploads/Picture/2024/03/04/s65e56964c3539.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+            display: block;
+        }
+
+        .Container1 .new-Container1 .background-Container1 .img:hover {
+            transform: scale(1.1);
+        }
+
+        .Container1 .hua-Container1 {
+            width: 100%;
+        }
+
+        .Container1 .hua-Container1 img {
+            width: 100%;
+            display: block;
+        }
+
+        .Container1 .right-Container1 {
+            width: calc(45% - 20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .Container1 .right-Container1 .top-Container1 {
+            width: 100%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .Container1 .right-Container1 .top-Container1 .box{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            transition: 2s;
+            transform: translateX(-100px);
+            opacity: 0;
+            margin: 200px auto;
+        }
+        .Container1 .right-Container1 .top-Container1 .box.active{
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .Container1 .right-Container1 .list-Container1 {
+            background-color: #7c2423;
+            padding: 15px;
+            color: #fff;
+            overflow: hidden;
+            width: 100%;
+            flex: 1 1 auto;
+
+        }
+
+        .Container1 .right-Container1 .list-Container1 .title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .Container1 .right-Container1 .list-Container1 .list {
+            padding-bottom: 15px;
+            border-bottom: 1px solid black;
+        }
+
+        .Container1 .right-Container1 .list-Container1 .list li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 5px 0px 5px 25px;
+            font-size: 18px;
+        }
+
+        .Container1 .right-Container1 .list-Container1 .news {
+            margin-top: 15px;
+        }
+
+        .Container1 .right-Container1 .list-Container1 .news li {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 10px;
+            font-size: 15px;
+            line-height: 22px;
+        }
+
+        .Container1 .right-Container1 .list-Container1 .news li p {
+            padding: 0 10px;
+            width: 75%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            float: left;
+        }
+
+        .Container1 .right-Container1 .list-Container1 .news li span {
+            float: right;
+        }
+
+        /* .Container1 .right-Container1 .top-Container1{
+            background-color: #1e354a;
+        } */
+        .Container1 .right-Container1 .top-Container1 .one-Container{
+            padding: 20px;
+            color: #fff;
+            background-color: #1e354a;
+        }
+        .Container1 .right-Container1 .top-Container1 .one-Container .one{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .Container1 .right-Container1 .top-Container1 .one-Container .one h1{
+            margin-bottom: 5px;
+        }
+        .Container1 .right-Container1 .top-Container1 .one-Container .two{
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            opacity: 0;
+            transition: 1.5s;
+            transform: translateX(-150px);
+        }
+        .Container1 .right-Container1 .top-Container1 .one-Container .two.active{
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .Container1 .right-Container1 .top-Container1 .one-Container .two h1{
+            margin-bottom: 5px;
+        }
+        .Container1 .right-Container1 .top-Container1 .one-Container .two span{
+            color: #ccc;
+        }
+        .Container1 .right-Container1 .top-Container1 .two-Container{
+            background-color: #334f68;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .Container1 .right-Container1 .top-Container1 .two-Container .left-container{
+            flex: 1 0 0;
+            text-align: center;
+            color: #fff;
+        }
+        .Container1 .right-Container1 .top-Container1 .two-Container .left-container span{
+            color: #ccc;
+        }
+        .Container1 .right-Container1 .top-Container1 .two-Container .left-container .d-container{
+            width: 60%;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: #24384b;
+            margin: 0 auto;
+            margin-bottom: 3px;
+        }
+        .Container1 .right-Container1 .top-Container1 .two-Container .left-container .time{
+            font-size: 13px;
+        }
+        .Container1 .right-Container1 .top-Container1 .two-Container .right-container{
+            flex: 1 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            color: #fff;
+        }
+        .Container1 .right-Container1 .top-Container1 .two-Container .right-container .go-container{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width: 1200px) {
+            .Container1 {
+                flex-direction: column;
+            }
+
+            .Container1 .left-Container1 {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            /* .Container1 .left-Container1 .background-Container1 {
+                display: none;
+            } */
+
+            .Container1 .right-Container1 {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -102,12 +394,143 @@
             <div class="point"></div>
         </div>
     </div>
+    <div class="Container1">
+        <div class="left-Container1">
+            <div class="new-Container1">
+                <div class="list-Container1">
+                    <div class="title">
+                        <h1>故宫</h1>
+                        <span>更多</span>
+                    </div>
+                    <ul class="list">
+                        <li>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.Lorem ipsum
+                            dolor sit amet.</li>
+                        <li>Maxime est nemo inventore magnam.</li>
+                        <li>Possimus optio vero beatae fugit!</li>
+                    </ul>
+                    <ul class="news">
+                        <li>
+                            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                            <span>03/04</span>
+                        </li>
+                        <li>
+                            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                            <span>03/04</span>
+                        </li>
+                        <li>
+                            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                            <span>03/04</span>
+                        </li>
+                        <li>
+                            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                            <span>03/04</span>
+                        </li>
+                        <li>
+                            <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                            <span>03/04</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="background-Container1">
+                    <div class="img">
+
+                    </div>
+                </div>
+            </div>
+            <div class="hua-Container1">
+                <img src="https://img.dpm.org.cn/Uploads/Picture/2024/02/04/s65bef3a92258f.jpg" alt="">
+            </div>
+        </div>
+        <div class="right-Container1">
+            <div class="top-Container1">
+                <!-- <div class="box"></div> -->
+                <div class="one-Container">
+                    <div class="one">
+                        <p>2021 / 5 / 13</p>
+                        <h1>今日开馆</h1>
+                        <p>除法定节假日，故宫博物院全年实行周一闭馆</p>
+                        <p>入馆参观需验证健康码，测体温，刷身份证</p>
+                    </div>
+                    <div class="two">
+                        <div class="time">
+                            <h1>08:30</h1>
+                            <span>开放进馆时间</span>
+                        </div>
+                        <div class="time">
+                            <h1>16:10</h1>
+                            <span>停止入馆时间</span>
+                        </div>
+                        <div class="time">
+                            <h1>17:00</h1>
+                            <span>闭馆时间</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="two-Container">
+                    <div class="left-container">
+                        <div class="d-container">
+                            <span>在线订票</span>
+                        </div>
+                        <div class="call-container">
+                            <h3>咨询电话</h3>
+                            <p>400-950-1925</p>
+                            <span class="time">服务时间：08:00-20:00</span>
+                        </div>
+                    </div>
+                    <div class="right-container">
+                        <div class="go-container">
+                            <p>交通路线</p>
+                        </div>
+                        <div class="go-container">
+                            <p>参观须知</p>
+                        </div>
+                        <div class="go-container">
+                            <p>导览地图</p>
+                        </div>
+                        <div class="go-container">
+                            <p>全景故宫</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-Container1">
+                <div class="title">
+                    <h1>故宫</h1>
+                    <span>更多</span>
+                </div>
+                <ul class="list">
+                    <li>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.Lorem ipsum
+                        dolor sit amet.</li>
+                    <li>Maxime est nemo inventore magnam.</li>
+                    <li>Possimus optio vero beatae fugit!</li>
+                </ul>
+                <ul class="news">
+                    <li>
+                        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                        <span>03/04</span>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                        <span>03/04</span>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                        <span>03/04</span>
+                    </li>
+                    <li>
+                        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                        <span>03/04</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <script>
         //目标 1s 由1倍变成1.1倍
         //切换图片 0.5s 变成1.5倍 然后消失
         (function () {
             const imgContainer = document.querySelector(".img-container")
-            const imgs = document.querySelectorAll("img")
+            const imgs = document.querySelectorAll(".Container img")
             const arrowLeft = document.querySelector(".arrow-left")
             const arrowRight = document.querySelector(".arrow-right")
             const points = document.querySelectorAll(".point")
@@ -218,8 +641,8 @@
             })
             init()
         })()
-
     </script>
+    <script src="./scroll.js"></script>
 </body>
 
 </html>
