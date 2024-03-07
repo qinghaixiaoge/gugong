@@ -6,27 +6,231 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        @import url(//at.alicdn.com/t/c/font_4361608_q4vy7szug3.css);
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            list-style: none;
         }
 
         html {
             scroll-behavior: smooth;
         }
+        body{
+            overflow-x: hidden;
 
+        }
+
+        .header {
+            width: 100%;
+            position: absolute;
+            line-height: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .header .img-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .img-container img {
+            width: 116px;
+        }
+
+        .header .menu-container {
+            display: flex;
+            min-width: 642px;
+            justify-content: space-around;
+        }
+
+        .header .menu-container li {
+            position: relative;
+        }
+
+        .header .menu-container li.active a {
+            color: #69482a;
+        }
+
+        .header .menu-container li.active:not(:first-child):after {
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-bottom-color: #69482a;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+        }
+
+        .yinchang-container{
+            position: relative;
+        }
+
+        .yinchang-container .tan-container {
+            position: absolute;
+            height: 50px;
+            line-height: 50px;
+            background-color: #69482a;
+            top: 50px;
+            display: flex;
+            left: 0;
+            width: 100%;
+            padding-left: 150px;
+            height: 0;
+            overflow: hidden;
+            transition: 0.15s ease-in-out;
+            z-index: 999;
+        }
+
+        .yinchang-container .tan-container:not(:first-child).active {
+            height: 50px;
+        }
+
+        .yinchang-container .tan-container li {
+            padding: 0 15px;
+        }
+
+        .yinchang-container .tan-container li a {
+            font-size: 14px;
+            color: #fff;
+            display: block;
+            cursor: pointer;
+        }
+
+        .yinchang-container .tan-container li a:hover {
+            color: #a27e4e;
+            display: block;
+            cursor: pointer;
+        }
+
+        .header .menu-container li a {
+            color: #fff;
+            padding: 0 8px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .header .icon-container {
+            display: flex;
+        }
+
+        .header .icon-container li {
+            position: relative;
+        }
+
+        .header .icon-container li .search {
+            display: none;
+            position: absolute;
+            left: 0;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 10px;
+            outline: none;
+        }
+
+        .header .icon-container li:hover .login,
+        .header .icon-container li:hover .search {
+            display: block;
+        }
+
+        .header .icon-container li .login {
+            display: none;
+            line-height: 1;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            top: 50px;
+        }
+
+        .header .icon-container li .login li {
+            line-height: 25px;
+            border: 1px solid #fff;
+            cursor: pointer;
+            color: #fff;
+
+        }
+
+        .header .icon-container li a {
+            display: block;
+            cursor: pointer;
+        }
+
+        .header .icon-container li a i {
+            font-size: 23px;
+            padding: 0 10px;
+            color: #fff;
+        }
+
+        .header .icon-container li:not(:last-child) a i {
+            border-right: 1px solid;
+        }
+
+        #tanBox {
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: rgba(166, 175, 179, 0.6);
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            transition: 0.2s;
+            opacity: 0;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            display: none;
+        }
+
+        #tanBox button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #69482a;
+            cursor: pointer;
+        }
+
+        #tanBox h2 {
+            padding-bottom: 50px;
+            font-size: 30px;
+        }
+
+        #tanBox .list {
+            min-width: 160px;
+        }
+
+        #tanBox .list li {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #closetanBox {
+            position: absolute;
+            top: 50px;
+            right: 80px;
+            transition: 1s;
+        }
+
+        #closetanBox:hover {
+            transform: rotate(360deg);
+        }
         .Container {
             position: relative;
-            margin: 50px auto;
+            /* margin: 50px auto; */
             overflow: hidden;
         }
 
-        .img-container {
+        .Container .img-container {
             padding-bottom: 47%;
         }
 
-        .img-container img {
+        .Container .img-container img {
             width: 100%;
             height: 100%;
             position: absolute;
@@ -465,8 +669,9 @@
         .Container3 {
             position: fixed;
             right: 0;
-            bottom: 50px;
+            bottom: 28%;
             display: flex;
+            opacity: 0;
             flex-direction: column;
             justify-content: center;
             align-items: flex-end;
@@ -523,6 +728,137 @@
         .Container3 .middle-Container3 .box-Container3:hover div {
             display: flex;
         }
+        .Container4{
+            background-color: #272727;
+            padding: 20px;
+        }
+        .Container4 .icon-Container4{
+            display: flex;
+            color: #fff;
+            justify-content: center;
+            flex-wrap: wrap;
+
+        }
+        .Container4 .icon-Container4 .box{
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .Container4 .icon-Container4 .box:hover .tan-Container4{
+            display: block;
+        }
+        .Container4 .icon-Container4 .box .tan-Container4{
+            display: none;
+            position: absolute;
+            padding: 10px;
+            background-color: #fff;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 100%;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            width: 130%;
+        }
+        .Container4 .icon-Container4 .box .tan-Container4::after{
+            content: '';
+            position: absolute;
+            border: 10px solid transparent;
+            border-top-color: #fff;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .Container4 .icon-Container4 .box .tan-Container4 img{
+            width: 100%;
+        }
+        .Container4 .icon-Container4 .box i{
+            font-size: 25px;
+            background-color: #474747;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        .Container4 .icon-Container4 .box i:hover{
+            background-color: #852828;
+        }
+        .Container4 .icon-Container4 .box span{
+            margin-top: 5px;
+        }
+        .Container4 .fangwen-Container4{
+            display: flex;
+            justify-content: center;
+            color: #b4b3aa;
+            flex-wrap: wrap;
+        }
+        .Container4 .fangwen-Container4 .title{
+            margin-right: 10px;
+        }
+        .Container4 .fangwen-Container4 .num span{
+            background-color: #404040;
+            width: 20px;
+            line-height: 1.5;
+            display: inline-block;
+            text-align: center;
+        }
+        .Container4 .banquan-Container4{
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+            font-weight: bold;
+        }
+        .Container4 .banquan-Container4 span{
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .Container4 .weihu-Container4{
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.5;
+            color: #474747;
+        }
+        .Container4 .gongan-Container4{
+            font-size: 14px;
+            text-align: center;
+            line-height: 1.5;
+            color: #474747;
+        }
+        .Container4 .btn{
+            margin-top: 15px;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+        }
+        .Container4 .btn a{
+            padding: 5px 10px;
+            border: 1px solid #fff;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .Container5{
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #a90c0c;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 999;
+            right: 50px;
+            bottom: 35%;
+        }
+        .Container5 i{
+            font-size: 35px;
+        }
         @media (max-width: 1095px) {
             .Container2 .left-Container2 {
                 padding: 20px 0;
@@ -573,10 +909,237 @@
                 margin-bottom: 20px;
             }
         }
+        @media (max-width: 1000px) {
+            .header .menu-container {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div class="header">
+        <div class="img-container">
+            <img src="https://img.dpm.org.cn/Uploads/Picture/2021/08/19/s611e293c9d212.png" alt="">
+        </div>
+        <ul class="menu-container">
+            <li>
+                <a>首页</a>
+            </li>
+            <li>
+                <a>导览</a>
+            </li>
+            <li>
+                <a>展览</a>
+            </li>
+            <li>
+                <a>教育</a>
+            </li>
+            <li>
+                <a>探索</a>
+            </li>
+            <li>
+                <a>学术</a>
+            </li>
+            <li>
+                <a>文创</a>
+            </li>
+            <li>
+                <a>关于</a>
+            </li>
+        </ul>
+        <ul class="icon-container">
+            <li>
+                <a>
+                    <i class="iconfont icon-github"></i>
+                </a>
+                <ul class="login">
+                    <li>登录</li>
+                    <li>注册</li>
+                </ul>
+            </li>
+            <li>
+                <a>
+                    <i class="iconfont icon-github"></i>
+                </a>
+                <input type="text" placeholder="请输入关键字" class="search">
+            </li>
+            <li>
+                <a>
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+            <li id="tanBtn">
+                <a>
+                    <i class="iconfont icon-github"></i>
+                </a>
+            </li>
+        </ul>
+        <div id="tanBox">
+            <button id="closetanBox">关闭</button>
+            <ul class="list">
+                <h2>Logo</h2>
+                <li>首页</li>
+                <li>导览</li>
+                <li>展览</li>
+                <li>教育</li>
+                <li>学术</li>
+            </ul>
+            <ul class="list">
+                <h2>Logo</h2>
+                <li>首页</li>
+                <li>导览</li>
+                <li>展览</li>
+                <li>教育</li>
+                <li>学术</li>
+            </ul>
+            <ul class="list">
+                <h2>Logo</h2>
+                <li>首页</li>
+                <li>导览</li>
+                <li>展览</li>
+                <li>教育</li>
+                <li>学术</li>
+            </ul>
+            <ul class="list">
+                <h2>Logo</h2>
+                <li>首页</li>
+                <li>导览</li>
+                <li>展览</li>
+                <li>教育</li>
+                <li>学术</li>
+            </ul>
+        </div>
+    </div>
+    <div class="yinchang-container">
+        <ul class="tan-container">
+
+        </ul>
+        <ul class="tan-container">
+            <li>
+                <a>开放时间</a>
+            </li>
+            <li>
+                <a>在线订票</a>
+            </li>
+            <li>
+                <a>交通路线</a>
+            </li>
+            <li>
+                <a>参观须知</a>
+            </li>
+            <li>
+                <a>全景故宫</a>
+            </li>
+        </ul>
+        <ul class="tan-container">
+            <li>
+                <a>开放时间</a>
+            </li>
+            <li>
+                <a>在线订票</a>
+            </li>
+            <li>
+                <a>交通路线</a>
+            </li>
+            <li>
+                <a>参观须知</a>
+            </li>
+            <li>
+                <a>全景故宫</a>
+            </li>
+        </ul>
+        <ul class="tan-container">
+            <li>
+                <a>开放时间</a>
+            </li>
+            <li>
+                <a>在线订票</a>
+            </li>
+            <li>
+                <a>交通路线</a>
+            </li>
+            <li>
+                <a>参观须知</a>
+            </li>
+            <li>
+                <a>全景故宫</a>
+            </li>
+        </ul>
+        <ul class="tan-container">
+            <li>
+                <a>开放时间</a>
+            </li>
+            <li>
+                <a>在线订票</a>
+            </li>
+            <li>
+                <a>交通路线</a>
+            </li>
+            <li>
+                <a>参观须知</a>
+            </li>
+            <li>
+                <a>全景故宫</a>
+            </li>
+        </ul>
+        <ul class="tan-container">
+            <li>
+                <a>开放时间</a>
+            </li>
+            <li>
+                <a>在线订票</a>
+            </li>
+            <li>
+                <a>交通路线</a>
+            </li>
+            <li>
+                <a>参观须知</a>
+            </li>
+            <li>
+                <a>全景故宫</a>
+            </li>
+        </ul>
+        <ul class="tan-container">
+            <li>
+                <a>开放时间</a>
+            </li>
+            <li>
+                <a>在线订票</a>
+            </li>
+            <li>
+                <a>交通路线</a>
+            </li>
+            <li>
+                <a>参观须知</a>
+            </li>
+            <li>
+                <a>全景故宫</a>
+            </li>
+        </ul>
+        <ul class="tan-container">
+            <li>
+                <a>开放时间</a>
+            </li>
+            <li>
+                <a>在线订票</a>
+            </li>
+            <li>
+                <a>交通路线</a>
+            </li>
+            <li>
+                <a>参观须知</a>
+            </li>
+            <li>
+                <a>全景故宫</a>
+            </li>
+        </ul>
+    </div>
     <div class="Container">
         <div class="img-container">
             <img src="https://www.dpm.org.cn/Uploads/Picture/2024/02/26/s65dc44be55818.jpg" data-name="1">
@@ -768,6 +1331,48 @@
             </li>
         </ul>
     </div>
+    <div class="Container2">
+        <div class="left-Container2">
+            <h1>故宫 * 藏品</h1>
+            <div class="num-Container2">
+                <h1>1,863,404</h1>
+                <img src="./imgs/call.png">
+            </div>
+            <div class="button-Container2">
+                <div>藏品目录</div>
+                <div>数字文物库</div>
+            </div>
+        </div>
+        <ul class="right-Container2">
+            <li>
+                <img src="./imgs/pin_one.jpg">
+                <div class="tan-Container2">
+                    <p>绿地剔红龙凤寿字纹八方盆 </p>
+                    <p>明嘉靖</p>
+                    <p>高14厘米，口径22.3厘米</p>
+                    <p>盆八方形，外壁剔彩花纹，八面均为绿漆刻回纹、勾云纹、水波纹锦地，分雕龙、凤纹各4组。每组下部雕海水江崖，上部有腾飞的龙或凤，流云飘浮其间。雕刻精细，刀法快利，不磨熟棱角，具有锋棱之美</p>
+                </div>
+            </li>
+            <li>
+                <img src="./imgs/pin_two.jpg">
+                <div class="tan-Container2">
+                    <p>绿地剔红龙凤寿字纹八方盆 </p>
+                    <p>明嘉靖</p>
+                    <p>高14厘米，口径22.3厘米</p>
+                    <p>盆八方形，外壁剔彩花纹，八面均为绿漆刻回纹、勾云纹、水波纹锦地，分雕龙、凤纹各4组。每组下部雕海水江崖，上部有腾飞的龙或凤，流云飘浮其间。雕刻精细，刀法快利，不磨熟棱角，具有锋棱之美</p>
+                </div>
+            </li>
+            <li>
+                <img src="./imgs/pin_three.jpg">
+                <div class="tan-Container2">
+                    <p>绿地剔红龙凤寿字纹八方盆 </p>
+                    <p>明嘉靖</p>
+                    <p>高14厘米，口径22.3厘米</p>
+                    <p>盆八方形，外壁剔彩花纹，八面均为绿漆刻回纹、勾云纹、水波纹锦地，分雕龙、凤纹各4组。每组下部雕海水江崖，上部有腾飞的龙或凤，流云飘浮其间。雕刻精细，刀法快利，不磨熟棱角，具有锋棱之美</p>
+                </div>
+            </li>
+        </ul>
+    </div>
     <div class="Container3">
         <div class="back-Container3">⬆</div>
         <div class="middle-Container3">
@@ -782,10 +1387,99 @@
         </div>
         <div class="dao-Container3" data="open">导</div>
     </div>
+    <div class="Container4">
+        <div class="icon-Container4">
+            <div class="box">
+                <i class="iconfont icon-weixin"></i>
+                <span>微博</span>
+                <div class="tan-Container4">
+                    <img src="https://img.dpm.org.cn/Uploads/Picture/2021/11/03/s618255300b08b.jpg" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <i class="iconfont icon-weixin"></i>
+                <span>微博</span>
+                <div class="tan-Container4">
+                    <img src="https://img.dpm.org.cn/Uploads/Picture/2021/11/03/s618255300b08b.jpg" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <i class="iconfont icon-weixin"></i>
+                <span>微博</span>
+                <div class="tan-Container4">
+                    <img src="https://img.dpm.org.cn/Uploads/Picture/2021/11/03/s618255300b08b.jpg" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <i class="iconfont icon-weixin"></i>
+                <span>微博</span>
+                <div class="tan-Container4">
+                    <img src="https://img.dpm.org.cn/Uploads/Picture/2021/11/03/s618255300b08b.jpg" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <i class="iconfont icon-weixin"></i>
+                <span>微博</span>
+                <div class="tan-Container4">
+                    <img src="https://img.dpm.org.cn/Uploads/Picture/2021/11/03/s618255300b08b.jpg" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <i class="iconfont icon-weixin"></i>
+                <span>微博</span>
+                <div class="tan-Container4">
+                    <img src="https://img.dpm.org.cn/Uploads/Picture/2021/11/03/s618255300b08b.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+        <div class="fangwen-Container4">
+            <span class="title">网站访问量</span>
+            <div class="num">
+                <span>1</span>
+                <span>2</span>
+                <span>1</span>
+                <span>2</span>
+                <span>1</span>
+                <span>2</span>
+                <span>1</span>
+                <span>2</span>
+                <span>1</span>
+                <span>2</span>
+            </div>
+        </div>
+        <div class="banquan-Container4">
+            <span>网站地图</span>
+            <span>相关链接</span>
+            <span>影像授权</span>
+            <span>隐私政策</span>
+            <span>版权声明</span>
+            <span>留言板</span>
+            <span>联系我们</span>
+            <span>关于我们</span>
+        </div>
+        <div class="weihu-Container4">
+            <span>网站维护：故宫博物院数字与信息部</span>
+            <span>联系方式：gugong@dpm.org.cn</span>
+        </div>
+        <div class="gongan-Container4">
+            <span>京公网安备 11010102004165号   京ICP备05067311号-1<br>
+                © 2001- 现在 故宫博物院   网站建设：北京分形科技</span>
+        </div>
+        <div class="btn">
+            <a>游览建议</a>
+        </div>
+    </div>
+    <div class="Container5">
+        <i class="iconfont icon-weixin"></i>
+        <p>我要留言</p>
+    </div>
+    <script src="./header.js"></script>
     <script src="./lunbo.js"></script>
     <script src="./scroll.js"></script>
     <script src="./mouse.js"></script>
     <script src="./gotop.js"></script>
+    <script src="./tuozhuai.js"></script>
 </body>
 
 </html>
